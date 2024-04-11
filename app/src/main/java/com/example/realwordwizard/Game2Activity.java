@@ -13,9 +13,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class GameActivity extends AppCompatActivity {
+public class Game2Activity extends AppCompatActivity {
 
-    private final QuestionLibrary questionLibrary = new QuestionLibrary();
+    private final QuestionLibrary question2Library = new QuestionLibrary();
 
     private TextView xpCount;
     private TextView questionView;
@@ -32,8 +32,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_game);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.game), (v, insets) -> {
+        setContentView(R.layout.activity_game2);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.game2), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -59,9 +59,9 @@ public class GameActivity extends AppCompatActivity {
                     updateXP(xp);
                     update();
 
-                    Toast.makeText(GameActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(GameActivity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
                     update();
                 }
             }
@@ -76,9 +76,9 @@ public class GameActivity extends AppCompatActivity {
                     updateXP(xp);
                     updateQuestion();
 
-                    Toast.makeText(GameActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(GameActivity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
                     update();
                 }
             }
@@ -93,9 +93,9 @@ public class GameActivity extends AppCompatActivity {
                     updateXP(xp);
                     update();
 
-                    Toast.makeText(GameActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(GameActivity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Game2Activity.this, "wrong, the answer was " + answer, Toast.LENGTH_SHORT).show();
                     update();
                 }
             }
@@ -103,12 +103,12 @@ public class GameActivity extends AppCompatActivity {
 
     }
     private void updateQuestion () {
-        questionView.setText(questionLibrary.getQuestion(questionNumber));
-        buttonChoice1.setText(questionLibrary.getChoice1(questionNumber));
-        buttonChoice2.setText(questionLibrary.getChoice2(questionNumber));
-        buttonChoice3.setText(questionLibrary.getChoice3(questionNumber));
+        questionView.setText(question2Library.getQuestion(questionNumber));
+        buttonChoice1.setText(question2Library.getChoice1(questionNumber));
+        buttonChoice2.setText(question2Library.getChoice2(questionNumber));
+        buttonChoice3.setText(question2Library.getChoice3(questionNumber));
 
-        answer = questionLibrary.getCorrectAnswer(questionNumber);
+        answer = question2Library.getCorrectAnswer(questionNumber);
         this.questionNumber++;
     }
 
@@ -117,17 +117,14 @@ public class GameActivity extends AppCompatActivity {
         if (this.questionNumber == 9) {
 
             if (this.xp == 9) {
-                Toast.makeText(GameActivity.this, "LEVEL COMPLETE", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, Settings2Activity.class);
-                finish();
-                startActivity(i);
+                Toast.makeText(Game2Activity.this, "LEVEL COMPLETE", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(GameActivity.this, "LEVEL FAILED, RETRY TO COMPLETE", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, SettingsActivity.class);
-                finish();
-                startActivity(i);
+                Toast.makeText(Game2Activity.this, "LEVEL FAILED, RETRY TO COMPLETE", Toast.LENGTH_SHORT).show();
             }
 
+            Intent i = new Intent(this, Settings2Activity.class);
+            finish();
+            startActivity(i);
         } else {
             updateQuestion();
         }
@@ -139,7 +136,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void launchSettings (View v){
-        Intent i = new Intent(this, SettingsActivity.class);
+        Intent i = new Intent(this, Settings2Activity.class);
         finish();
         startActivity(i);
     }

@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="horizontal"
-    tools:context=".MainActivity">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/button2"
         android:layout_width="144dp"
         android:layout_height="59dp"
         android:fontFamily="@font/assylumfont"
-        android:onClick="launchSettings"
+        android:onClick="launchSettings2"
         android:text="Start!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,5 +52,4 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
